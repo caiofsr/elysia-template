@@ -1,6 +1,7 @@
 {
   "name": "elysia-template",
-  "version": "1.0.50",
+  "version": "0.0.1",
+  "author": "Caio Fernando <caiofsr@proton.me>",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "bun run --watch src/index.ts"
@@ -9,6 +10,7 @@
     "elysia": "latest"
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.2.4",
     "bun-types": "latest"
   },
   "module": "src/index.js"
