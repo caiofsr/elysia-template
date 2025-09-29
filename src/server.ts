@@ -13,7 +13,7 @@ const app = new Elysia()
 			},
 		}),
 	)
-	.get('/', () => 'Hello Elysia')
+	.get('/health', () => 'OK', { tags: ['Health'] })
 	.use(usersRoutes);
 
 export { app };
