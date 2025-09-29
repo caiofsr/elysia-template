@@ -1,0 +1,7 @@
+[test]
+coverageThreshold = { lines = 0.9, functions = 0.9, statements = 0.9 }
+
+coveragePathIgnorePatterns = [
+  "src/common/database/schema/**",
+  "src/common/libs/auth.ts"
+]

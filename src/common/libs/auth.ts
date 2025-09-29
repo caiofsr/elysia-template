@@ -9,6 +9,7 @@ export const auth = betterAuth({
 		camelCase: false,
 		usePlural: true,
 	}),
+	trustedOrigins: ['http://localhost:3333'],
 	basePath: '/auth',
 	plugins: [openAPI()],
 	emailAndPassword: {

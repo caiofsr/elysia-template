@@ -11,5 +11,44 @@ services:
     volumes:
       - db-data:/var/lib/postgresql/data
 
+  db-test:
+    image: postgres:17-alpine
+    container_name: elysia_db_test
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: elysia_test
+    ports:
+      - "5433:5432"
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+          cpus: "0.5"
+        reservations:
+          memory: 128M
+          cpus: "0.25"
+    command: >
+      postgres
+      -c shared_buffers=32MB
+      -c effective_cache_size=64MB
+      -c maintenance_work_mem=16MB
+      -c checkpoint_completion_target=0.9
+      -c wal_buffers=1MB
+      -c default_statistics_target=100
+      -c random_page_cost=1.1
+      -c effective_io_concurrency=200
+      -c work_mem=2MB
+      -c min_wal_size=80MB
+      -c max_wal_size=1GB
+      -c max_connections=20
+      -c log_statement=none
+      -c log_duration=off
+      -c log_lock_waits=off
+      -c log_checkpoints=off
+      -c fsync=off
+      -c synchronous_commit=off
+      -c full_page_writes=off
+
 volumes:
   db-data:
