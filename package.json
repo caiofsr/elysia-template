@@ -1,11 +1,16 @@
 {
   "name": "elysia-template",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Caio Fernando <caiofsr@proton.me>",
   "scripts": {
     "dev": "bun run --watch src/index.ts",
+    "test": "bun test",
+    "lint": "biome check .",
+    "lint:fix": "biome check --apply .",
+    "auth:secret": "openssl rand -hex 32",
     "auth:generate": "bunx --bun @better-auth/cli generate --config src/common/libs/auth.ts",
-    "db:generate": "bun --env-file .env.local --bun drizzle-kit generate"
+    "db:generate": "bun --env-file .env.local --bun drizzle-kit generate",
+    "db:migrate": "bun run src/migrate.ts"
   },
   "dependencies": {
     "@elysiajs/cors": "^1.4.0",
